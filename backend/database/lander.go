@@ -3,7 +3,6 @@ package database
 import "fileserver/model"
 
 func StoreNewUser(userinfo *model.Userinfo, password *model.UserPassword) error {
-
 	return nil
 }
 

@@ -71,7 +71,8 @@ func Login(r *http.Request) *model.ResponseCode {
 	return model.ResponseCodeOK.SetSuccessResponse("OK") // token struct json string
 }
 
-func CheckAclive(r *http.Request) *model.ResponseCode {
+// CheckAlive is default request, don't need to catch this action
+func CheckAlive(r *http.Request) *model.ResponseCode {
 	r.ParseForm()
 	token, ok := utils.GetFormString(r, "token")
 	if !ok {
