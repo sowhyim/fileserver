@@ -6,7 +6,7 @@ import (
 )
 
 func user() {
-	http.Handle("/regestry", handler.DefaultWrapper(handler.Regestry))
-	http.Handle("/login", handler.DefaultWrapper(handler.Login))
-	http.Handle("/check_alive", handler.DefaultWrapper(handler.CheckAlive))
+	http.Handle("/regestry", handler.LanderWrapper(handler.Regestry))
+	http.Handle("/login", handler.LanderWrapper(handler.Login))
+	http.Handle("/check_alive", handler.LanderWrapper(handler.CheckAlive))
 }

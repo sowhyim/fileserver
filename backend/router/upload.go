@@ -6,6 +6,7 @@ import (
 )
 
 func upload() {
-	http.Handle("/upload", handler.Authentication(handler.DealUploadTask))
-	http.Handle("/merge", handler.Authentication(handler.MergeUploadTask))
+	http.Handle("/create", handler.UploadWrapper(handler.CreateUploadTask))
+	http.Handle("/upload", handler.UploadWrapper(handler.DealUploadTask))
+	http.Handle("/merge", handler.UploadWrapper(handler.MergeUploadTask))
 }

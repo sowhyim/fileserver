@@ -14,7 +14,7 @@ var engine *gorm.DB
 
 func Init(config *model.DatabaseConfig) {
 	if config == nil || len(config.Connections) == 0 {
-		panic("init database got an nil or has no connection in config!")
+		panic("init database got a nil or has no connection in config!")
 	}
 
 	var resolverConfig = dbresolver.Config{}
@@ -62,9 +62,13 @@ func Init(config *model.DatabaseConfig) {
 			SetMaxOpenConns(maxOpenConnections).
 			SetMaxIdleConns(maxIdleConnections),
 	)
+
+	autoMigrate()
+
+	// TODO log Init success
 }
 
-func AutoMigrate() {
+func autoMigrate() {
 	engine.AutoMigrate(
 		&model.Userinfo{},
 		&model.UserPassword{},

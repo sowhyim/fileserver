@@ -2,4 +2,4 @@
 .vscode
 
 */database/*_test.go
-*/redis/*_test.go
+*/cache/*_test.go
