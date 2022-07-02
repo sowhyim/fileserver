@@ -21,7 +21,7 @@ func UploadWrapper(h func(*http.Request, *model.Userinfo) *model.ResponseCode) h
 	}
 }
 
-func DownloadWrapper(h func(r *http.Request) (map[string]string, []byte, model.ResponseCode)) http.HandlerFunc {
+func DownloadWrapper(h func(r *http.Request) (map[string]string, []byte, *model.ResponseCode)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		headers, data, resCode := h(r)
 		if resCode.Code != 0 {
